@@ -8,29 +8,17 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Random random = new Random((int)DateTime.Now.Ticks);
-            Grid grid = new Grid(GetRandomBool2DArray(random));
+            Console.CursorVisible = false;
+            Console.Read();
+            Console.Clear();
+            ConwayGameGrid grid = new ConwayGameGrid(100, 50);
             while (true)
             {
                 Console.WriteLine(grid);
                 grid.Update();
-                Thread.Sleep(100);
                 Console.SetCursorPosition(0, 0);
+                Thread.Sleep(1);
             }
-        }
-
-        public static bool[,] GetRandomBool2DArray(Random random)
-        {
-            bool[,] result = new bool[Grid.size, Grid.size];
-            for (int i = 0; i < Grid.size; ++i)
-            {
-                for (int j = 0; j < Grid.size; ++j)
-                {
-                    result[i, j] = random.Next(0, 2) == 0 ? false : true;
-                }
-            }
-
-            return result;
         }
     }
 }
