@@ -8,7 +8,9 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             Console.CursorVisible = false;
+            Console.WriteLine("Press any key...");
             Console.Read();
             Console.Clear();
             ConwayGameGrid grid = new ConwayGameGrid(100, 50);
